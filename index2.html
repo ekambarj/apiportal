@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Swagger UI</title>
+    <title>REST Resources : O2 API Platform Documentation</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
     <link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -15,12 +15,10 @@
     <script src='lib/swagger.js' type='text/javascript'></script>
     <script src='swagger-ui.js' type='text/javascript'></script>
     <script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
+	
+	
+	
 
- <script>
-  $(function() {
-    $( "#tabs" ).tabs();
-  });
-  </script>
     <style type="text/css">
         .swagger-ui-wrap {
             max-width: 960px;
@@ -83,20 +81,7 @@
 <body>
 <div id='header'>
     <div class="swagger-ui-wrap">
-        <a id="logo" href="http://swagger.wordnik.com">swagger</a>
-
-        <form id='api_selector'>
-            <div class='input icon-btn'>
-                <img id="show-pet-store-icon" src="images/pet_store_api.png" title="Show Swagger Petstore Example Apis">
-            </div>
-            <div class='input icon-btn'>
-                <img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">
-            </div>
-            <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl"
-                                      type="text"/></div>
-            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-            <div class='input'><a id="explore" href="#">Explore</a></div>
-        </form>
+        <a id="logo" href="http://swagger.wordnik.com">O2 Platform -- API Docs</a>
     </div>
 </div>
 
@@ -108,7 +93,7 @@
   <div id="domain-1">
     <div id="swagger-ui-container1" class="swagger-ui-wrap">
 	<script>
-		jQuery.fetchAPIDetails('http://localhost:8080/HelloRest/rest/api-docs.json/customer','swagger-ui-container1');
+		jQuery.fetchAPIDetails('http://localhost:8080/HelloRest/resources','swagger-ui-container1');
 	</script>
 	</div>
   </div>
