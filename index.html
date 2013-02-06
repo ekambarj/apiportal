@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>REST Resources : O2 API Platform Documentation</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
     <link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -42,33 +42,41 @@
         }
     </style>
 
-    <script type="text/javascript">
-        $(function () {
-            window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://localhost:8080/HelloRest/resources",
-                apiKey:"special-key",
-                dom_id:"swagger-ui-container",
-                supportHeaderParams: false,
-                supportedSubmitMethods: ['get', 'post', 'put'],
-                onComplete: function(swaggerApi, swaggerUi){
-                	if(console) {
-                        console.log("Loaded SwaggerUI")
-                        console.log(swaggerApi);
-                        console.log(swaggerUi);
-                    }
-                  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-                },
-                onFailure: function(data) {
-                	if(console) {
-                        console.log("Unable to Load SwaggerUI");
-                        console.log(data);
-                    }
-                },
-                docExpansion: "none"
-            });
+	<script type="text/javascript">
+		var internetGatewayContextPath='http://localhost:8080/HelloRest';
+		var domainResourcesEndPoint =['http://localhost:8080/HelloRest/resources','http://www.mozweb.com/resources.json'];
+	</script>
+	
+   <script type="text/javascript">
+   jQuery.extend({
+     fetchAPIDetails : function (url,domid){
+		alert('called with '+url + domid);
+				window.swaggerUi = new SwaggerUi({
+					discoveryUrl:url,
+					apiKey:"special-key",
+					dom_id:domid,
+					supportHeaderParams: false,
+					supportedSubmitMethods: ['get', 'post', 'put'],
+					onComplete: function(swaggerApi, swaggerUi){
+						if(console) {
+							console.log("Loaded SwaggerUI")
+							console.log(swaggerApi);
+							console.log(swaggerUi);
+						}
+					  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+					},
+					onFailure: function(data) {
+						if(console) {
+							console.log("Unable to Load SwaggerUI");
+							console.log(data);
+						}
+					},
+					docExpansion: "none"
+				});
 
-            window.swaggerUi.load();
-        });
+				window.swaggerUi.load();
+        }
+		});
 
     </script>
 </head>
@@ -84,10 +92,15 @@
     &nbsp;
 </div>
 
-<div id="swagger-ui-container" class="swagger-ui-wrap">
+<script>
+	for (var i = 0; i < domainResourcesEndPoint.length; i++) {
+		document.write("<div id=swagger-ui-container"+i+" class='swagger-ui-wrap'>");
+		jQuery.fetchAPIDetails(domainResourcesEndPoint[i],'swagger-ui-container'+i);
+		document.write("</div>");
+	}
+</script>
 
-</div>
-
+ 
 </body>
 
 </html>
