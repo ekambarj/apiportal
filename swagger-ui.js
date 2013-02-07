@@ -247,22 +247,22 @@ templates['main'] = template(function (Handlebars,depth0,helpers,partials,data) 
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        , <span style=\"font-variant: small-caps\">api version</span>: ";
+//  buffer += "\n        , <span style=\"font-variant: small-caps\">api version</span>: ";
   foundHelper = helpers.apiVersion;
   stack1 = foundHelper || depth0.apiVersion;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "apiVersion", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\n        ";
+  buffer += escapeExpression(stack1) + "        ";
   return buffer;}
 
-  buffer += "\n<div class='container' id='resources_container'>\n    <ul id='resources'>\n    </ul>\n\n    <div class=\"footer\">\n        <br>\n        <br>\n        <h4 style=\"color: #999\">[ <span style=\"font-variant: small-caps\">base url</span>: ";
-  foundHelper = helpers.basePath;
-  stack1 = foundHelper || depth0.basePath;
+  buffer += "<div class='container' id='resources_container'>    <ul id='resources'>\n    </ul>\n\n    <div class=\"footer\">\n        <br>\n        <br>\n        <h4 style=\"color: #999\"></span>";
+//  foundHelper = helpers.basePath;
+//  stack1 = foundHelper || depth0.basePath;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "basePath", { hash: {} }); }
   buffer += escapeExpression(stack1) + "\n        ";
-  foundHelper = helpers.apiVersion;
-  stack1 = foundHelper || depth0.apiVersion;
+//  foundHelper = helpers.apiVersion;
+//  stack1 = foundHelper || depth0.apiVersion;
   stack2 = helpers['if'];
   tmp1 = self.program(1, program1, data);
   tmp1.hash = {};
@@ -270,7 +270,7 @@ function program1(depth0,data) {
   tmp1.inverse = self.noop;
   stack1 = stack2.call(depth0, stack1, tmp1);
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "]</h4>\n    </div>\n</div>\n";
+  buffer += "</h4>\n    </div>\n</div>\n";
   return buffer;});
 })();
 
