@@ -14,6 +14,7 @@
     <script src='lib/underscore-min.js' type='text/javascript'></script>
     <script src='lib/backbone-min.js' type='text/javascript'></script>
     <script src='lib/swagger.js' type='text/javascript'></script>
+	<script src='lib/util.js' type='text/javascript'></script>
     <script src='swagger-ui.js' type='text/javascript'></script>
     <script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
 
@@ -44,8 +45,13 @@
     </style>
 
 	<script type="text/javascript">
-		var internetGatewayContextPath='http://localhost:8080/HelloRest';
-		var domainResourcesEndPoint =['http://localhost:8080/HelloRest/resources','http://www.mozweb.com/resources.json'];
+		<!-- JS variable to be modified accordingly based on the environment-->
+		<!-- domainResourcesEndPoint : A JS Array containing list of domain API  resources path-->
+		<!-- basePath_APIGWPathMap : A JS map containing mapping resources lists, the key contains the API resources basepath and the value will be the API gateway resource path. During run time the API gateway resource path will be identified based on the resource base path.-->
+		var domainResourcesEndPoint =["http://localhost:8080/HelloRest/resources","http://petstore.swagger.wordnik.com/api/api-docs.json"]
+		
+	    var basePath_APIGWPathMap = {'http://localhost:8080/HelloRest':'http://localhost:8080/HelloRest', 
+		'http://api.wordnik.com/v4':'http://petstore.swagger.wordnik.com/api'};
 	</script>
 	
    <script type="text/javascript">
@@ -93,11 +99,12 @@
 </div>
 
 <script>
-	for (var i = 0; i < domainResourcesEndPoint.length; i++) {
-		document.write("<div id=swagger-ui-container"+i+" class='swagger-ui-wrap'>");
-		jQuery.fetchAPIDetails(domainResourcesEndPoint[i],'swagger-ui-container'+i);
+	for(var index= 0; index <= domainResourcesEndPoint.length; index++)
+	{
+		document.write("<div id=swagger-ui-container"+index+" class='swagger-ui-wrap'>");
+		jQuery.fetchAPIDetails(domainResourcesEndPoint[index],'swagger-ui-container'+index++);
 		document.write("</div>");
-	}
+    }
 </script>
 </body>
 </html>
